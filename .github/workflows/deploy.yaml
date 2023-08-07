@@ -32,8 +32,8 @@ jobs:
 
       - name: Extract artifact
         run: |
-          mv falco-*-wasm/usr/bin/falco.wasm ./public
-          mv falco-*-wasm/usr/bin/falco.js  ./src/Hooks/
+          mv falco-*-wasm.tar.gz/usr/bin/falco.wasm ./public
+          mv falco-*-wasm.tar.gz/usr/bin/falco.js  ./src/Hooks/
 
       - name: Remove Unwanted Artifacts
         run: rm -rf falco-*-wasm.tar.gz falco-*-wasm
