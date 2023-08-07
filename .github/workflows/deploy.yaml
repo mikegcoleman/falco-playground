@@ -27,7 +27,8 @@ jobs:
           workflow: "CI.yml"
           repo: "falcosecurity/falco"
           run_id: 5764491712
-          name: falco-0.35.1-56+f3db07b-wasm.tar.gz
+          name: falco-*-wasm.tar.gz
+          name_is_regexp: true
 
       - name: Extract artifact
         run: |
