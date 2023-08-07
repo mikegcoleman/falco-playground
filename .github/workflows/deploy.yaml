@@ -27,13 +27,14 @@ jobs:
           workflow: "CI.yml"
           repo: "falcosecurity/falco"
           run_id: 5764491712
-          name: falco-\d+\.\d+\.\d+-\d+\+[a-f0-9]+-wasm\.tar\.gz
+          name: falco-\d+\.\d+\.\d+-\d+\+[a-f0-9]+-wasm.tar.gz
           name_is_regexp: true
 
       - name: Extract artifact
         run: |
-          mv falco-*-wasm.tar.gz/usr/bin/falco.wasm ./public
-          mv falco-*-wasm.tar.gz/usr/bin/falco.js  ./src/Hooks/
+          tar -xvf falco-*-wasm.tar.gz/falco-*-wasm.tar.gz
+          mv falco-*-wasm/usr/bin/falco.wasm ./public
+          mv falco-*-wasm/usr/bin/falco.js ./src/Hooks/
 
       - name: Remove Unwanted Artifacts
         run: rm -rf falco-*-wasm.tar.gz falco-*-wasm
